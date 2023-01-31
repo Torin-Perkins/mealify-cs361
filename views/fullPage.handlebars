@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Mealify</title>
+
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" crossorigin="anonymous">
+
+        <link rel="stylesheet" href="style.css">
+        <script src="index.js" charset="utf-8" defer></script>
+    </head>
+    <header>
+        <div class="header-title-div">
+            <h1 class="site-title"><a href="#">mealify</a></h1>
+        </div>
+    </header>
+    <main class="content">
+        <section class="home-page">
+
+            <!--Friends to be implemented later-->
+            <div class="friends-div hidden">
+                <h3 class="friends-title hidden"></h3>
+                <div class="friends-box">
+                    <img class="friend-profile-img"></img>
+                    <p class="friends-name"></p>
+                </div>
+            </div>
+
+            <!--search bar-->
+            <div class="search-bar-div">
+                <button class="fa-search" id="search-button"><i class="search-icon"></i></button>
+                <input type="text" id="search-bar-enter">Click here to search...</input>
+            </div>
+
+            <!--scroller-->
+            <div class="home-page-scroller-div">
+                {{#each scrollers}}
+                    {{> scroller}}
+                {{/each}}
+            </div>
+            <div class="side-fab-div hidden">
+                
+            </div>
+            
+            <button class="add-post-fab" id="add-post"><i class='fas fa-plus'></i></button>
+            
+        </section>
+    </main>
+</html>

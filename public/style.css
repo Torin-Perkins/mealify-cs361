@@ -1,0 +1,147 @@
+header {
+    background-color: #000;
+    display: flex;
+    align-items: center;
+    position: relative;
+  }
+  
+  header a {
+    color: #fff;
+  }
+
+  .site-title {
+    font-family: "Roboto Slab", serif;
+    font-size: 80px;
+    font-weight: 100;
+    margin: 0 0 0 20px;
+    padding-top: 30px;
+  }
+  
+  .site-title a:hover {
+    text-decoration: none;
+  }
+
+  .content {
+    display: flex;
+    
+  }
+
+  .hidden {
+    display: none;
+    visibility: hidden;
+  }
+
+  .scroller {
+    display: inline-block;
+    vertical-align: top;
+    height: 300px;
+    width: 300px;
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid #dadada;
+    border-radius: 3px;
+  }
+
+  .scroller-contents {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+  }
+
+  .scroller-img-box img {
+    max-height: 240px;
+    max-width: 300px;
+  }
+
+  #add-post {
+    position: fixed;
+    right: 30px;
+    bottom: 30px;
+    height: 60px;
+    width: 60px;
+    border: none;
+    border-radius: 30px;
+    font-size: 36px;
+    background-color: #f67811;
+    color: #fff;
+    cursor: pointer;
+    box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.25);
+  }
+  
+  #add-post:hover,
+  #add-post:focus {
+    right: 27px;
+    bottom: 27px;
+    height: 66px;
+    width: 66px;
+    border-radius: 33px;
+    font-size: 40px;
+  }
+  
+  #add-post:focus {
+    outline: none;
+  }
+
+  #modal-backdrop{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;;
+    background-color: #2d232eb1;
+    overflow: scroll;
+}
+
+#new-scroller-modal{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+
+    width: 530px;
+    height: 725px;
+    z-index: 1010;
+
+
+    position: fixed;
+    top:4%;
+    right: 31%;
+    overflow: scroll;
+
+    box-shadow: 1px 1px 4px #2D232E;
+    border-radius: 60px;
+    background-color: #DFDFDF;
+    border: 5px solid #2D232E;
+}
+.modal-header{
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 20px;
+    border: 3px solid #2D232E;
+    border-radius: 3%;
+    box-shadow: 1px 1px 4px #2D232E;
+    background-color: #426B69;
+    margin-bottom: 10px;
+    width: 527px;
+    color:#DFDFDF;
+    height: 50px;
+}
+
+.modal-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center; 
+    margin-top: 30px;
+    gap: 20px 20px; 
+}
+
+.modal-footer{
+    display: flex;
+    justify-content: space-evenly; 
+}

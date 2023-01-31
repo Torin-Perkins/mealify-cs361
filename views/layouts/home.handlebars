@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Mealify</title>
+
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" crossorigin="anonymous">
+
+        <link rel="stylesheet" href="style.css">
+
+        <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.runtime.js"></script>
+        <script src="/scrollerTemplate.js" charset="utf-8" defer></script>
+        <script src="/index.js" charset="utf-8" defer></script>
+        
+    </head>
+    <header>
+        <div class="header-title-div">
+            <h1 class="site-title"><a href="#">mealify</a></h1>
+        </div>
+    </header>
+    <main class="content">
+        <section class="home-page">
+
+            <!--Friends to be implemented later-->
+            <div class="friends-div hidden">
+                <h3 class="friends-title hidden"></h3>
+                <div class="friends-box">
+                    <img class="friend-profile-img"></img>
+                    <p class="friends-name"></p>
+                </div>
+            </div>
+
+            <!--search bar-->
+            <div class="search-bar-div">
+                <button class="fa fa-search" id="search-button"><i class="search-icon"></i></button>
+                <input type="text" id="search-bar-enter">Click here to search...</input>
+            </div>
+
+            <!--scroller-->
+            <div class="home-page-scroller-div" id="scroller-boxes">
+                {{#each scrollers}}
+                    {{> scroller}}
+                {{/each}}
+            </div>
+
+            <div id="modal-backdrop" class="hidden"></div>
+            <div id="new-scroller-modal" class="hidden">
+                <div id="add-scroll-mod" class="hidden">
+                <div class="modal-header">
+                    <h3>Enter your post</h3>
+                    <button type="button" id="modal-close" class="modal-hide-button">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <label for="new-scroller-title-input">Post Title: </label>
+                    <input type="text" id="new-scroller-title-input" class="new-scroller-input"></input>
+
+                    <label for="new-scroller-photo-input">Photo: </label>
+                    <input type="text" id="new-scroller-photo-input"class="new-scroller-input"></input>
+
+                    <label for="new-scroller-description-input">Description: </label>
+                    <input type="text" id="new-scroller-description-input"class="new-scroller-input"></input>
+
+                    <label for="new-scroller-carbs-input">Carbs: </label>
+                    <input type="text" id="new-scroller-carbs-input"class="new-scroller-input"></input>
+
+                    <label for="new-scroller-fat-input">Fats: </label>
+                    <input type="text" id="new-scroller-fat-input" class="new-scroller-input"></input>
+
+                    <label for="new-scroller-protein-input">Protein: </label>
+                    <input type="text" id="new-scroller-protein-input" class="new-scroller-input"></input>
+                </div>
+                <div class="modal-footer">
+					<button type="button" id="modal-cancel" class="modal-hide-button action-button">Cancel</button>
+					<button type="button" id="modal-accept" class="action-button">Create Post</button>
+				</div>
+                </div>
+            </div>
+
+            <div class="side-fab-div hidden">
+                
+            </div>
+            
+            <button class="add-post-fab" id="add-post"><i class='fas fa-plus'></i></button>
+            
+        </section>
+    </main>
+</html>
