@@ -33,7 +33,39 @@
             <!--search bar-->
             <div class="search-bar-div">
                 <button class="fa fa-search" id="search-button"><i class="search-icon"></i></button>
-                <input type="text" id="search-bar-enter">Click here to search...</input>
+
+                <label for="search-bar-ingredient">Ingredient: </label>
+                <input type="text" id="search-bar-ingredient"></input>
+
+                
+
+                <label for="search-bar-nutrient">Nutrient: </label>
+                <select id="search-bar-nutrient">
+                    <option value="carbs">Carbohydrates</option>
+                    <option value="fats">Fats</option>
+                    <option value="protein">Protein</option>
+                </select>
+
+                <label for="search-bar-symbol">Symbol: </label> 
+                <select id="search-bar-symbol">
+                    <option value="<">greater than</option>
+                    <option value="<=">greater than or equal to</option>
+                    <option value="=">equal to</option>
+                    <option value=">">less than</option>
+                    <option value=">=">less than or equal to</option>
+                </select>
+
+                <label for="search-bar-nutrient-amount">Amount: </label>
+                <input type="text" id="search-bar-nutrient-amount"></input>
+
+                <label for="search-bar-unit">Unit: </label>
+                <select id="search-bar-unit">
+                    <option value="g">grams</option>
+                    <option value="%">%</option>
+                </select>
+
+                <button id="search-reset-button">Reset Search</button>
+
             </div>
 
             <!--scroller-->

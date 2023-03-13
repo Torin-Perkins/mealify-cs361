@@ -1,10 +1,1 @@
-[
-    {
-        "title": "Chicken and Rice", 
-        "description": "Standard Meal for anybody", 
-        "photoURL": "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/singleimagebug-chicken-and-coconut-rice-casserole-pin-1556288628.jpg",
-        "carbs": "37",
-        "fat": "15",
-        "protein": "72"
-    }
-]
+[{"title":"Kentucky Fried Chicken","ingredients":["Ketchup","Rice","Chicken"],"macroNutrientGrams":{"carbs":27,"protein":30,"fats":10},"macroNutrientPercentages":{"carbs":40,"protein":50,"fats":30}},{"title":"Beef Stew","ingredients":["Ketchup","Rice","Chicken"],"macroNutrientGrams":{"carbs":15,"protein":29,"fats":20},"macroNutrientPercentages":{"carbs":6.7,"protein":48.3,"fats":40}},{"title":"Yuh","photoURL":"na","ingredients":["cats"," carbs"," fat"],"macroNutrientGrams":{"carbs":"15","protein":"15","fats":"15"},"macroNutrientPercentages":{"carbs":0.009900009900009901,"protein":0.009900009900009901,"fats":0.009900009900009901}}]
