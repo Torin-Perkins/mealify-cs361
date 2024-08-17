@@ -30,8 +30,8 @@ app.get('/', function(req, res){
     for(var i = 0; i < postData.length; i++){
         allScrollers.push({
             title: postData[i]["title"], 
-            photoURL: "idk",
-            description: postData[i]["title"],
+            photoURL: postData[i]["photoURL"],
+            description: postData[i]["ingredients"],
             carbs: postData[i]["macroNutrientGrams"]["carbs"],
             fat: postData[i]["macroNutrientGrams"]["fats"],
             protein: postData[i]["macroNutrientGrams"]["protein"]
@@ -200,7 +200,8 @@ class APIResponse {
 
       if (this.nutrient_input === "") {
           recipes = this.ingredient_search(this.ingredient_input, this.database_recipes);
-      } else if (this.ingredient_input === "") {
+      } 
+      else if(this.ingredient_input === "") {
           recipes = this.nutrient_search(this.nutrient_input, this.nutrient_amount, this.unit, this.database_recipes);
       } else {
           recipes = this.complete_search(this.ingredient_input, this.nutrient_input);
@@ -210,11 +211,14 @@ class APIResponse {
 
 
   ingredient_search(ingredient, recipes_to_search) {
-      user_recipes = []
-      for (i = 0; i < recipes_to_search.length(); i++) {
-          for (j = 0; j < recipes_to_search[i]["ingredients"]; j++) {
+    console.log("==ingredient search")
+    var user_recipes = [];
+      for (var i = 0; i < recipes_to_search.length; i++) {
+          for (var j = 0; j < recipes_to_search[i]["ingredients"].length; j++) {
               if (ingredient === recipes_to_search[i]["ingredients"][j]) {
-                  user_recipes.push(recipe)
+                var recipe = recipes_to_search[i];
+                    console.log("==pushing", recipe);
+                  user_recipes.push(recipe);
               }  
              
           }
@@ -223,7 +227,7 @@ class APIResponse {
 
       }
 
-
+      console.log(user_recipes);
       return user_recipes
   }
 
@@ -240,10 +244,7 @@ class APIResponse {
       } else {
           nutrient_amt = "macroNutrientPercentages"
       }
-     console.log("==recipes_to_search", recipes_to_search);
-     console.log("==nutrient_amt", nutrient_amt);
-     console.log("==nutrient", nutrient);
-     console.log("==result:", recipes_to_search[0][nutrient_amt][nutrient])
+     
 
       for (var i = 0; i < recipes_to_search.length; i++) {
         let recipe = recipes_to_search[i];
@@ -344,7 +345,6 @@ app.post("/response", function(req, res){
   console.log("Unit is ", unit)
 
 
-  // It is unclear how the Frontend will be implemented, so writing the code implementation in the Backend is not possible at the moment.
   let user_request = new UserRequest(ingredient, nutrient, nutrientAmount, unit, symbol)
 
 
@@ -354,7 +354,7 @@ app.post("/response", function(req, res){
     for(var i = 0; i < response.length; i++){
         sortedScrollers.push({
             title: response[i]["title"], 
-            photoURL: "idk",
+            photoURL: postData[i]["photoURL"],
             description: response[i]["title"],
             carbs: response[i]["macroNutrientGrams"]["carbs"],
             fat: response[i]["macroNutrientGrams"]["fats"],
@@ -373,7 +373,7 @@ app.post("/reset", function(req, res){
     for(var i = 0; i < postData.length; i++){
         allScrollers.push({
             title: postData[i]["title"], 
-            photoURL: "idk",
+            photoURL: postData[i]["photoURL"],
             description: postData[i]["title"],
             carbs: postData[i]["macroNutrientGrams"]["carbs"],
             fat: postData[i]["macroNutrientGrams"]["fats"],
@@ -405,7 +405,7 @@ app.post("/add", function(req, res){
     for(var i = 0; i < postData.length; i++){
         allScrollers.push({
             title: postData[i]["title"], 
-            photoURL: "idk",
+            photoURL: postData[i]["photoURL"],
             description: postData[i]["title"],
             carbs: postData[i]["macroNutrientGrams"]["carbs"],
             fat: postData[i]["macroNutrientGrams"]["fats"],

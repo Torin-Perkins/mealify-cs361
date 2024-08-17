@@ -32,22 +32,23 @@
 
             <!--search bar-->
             <div class="search-bar-div">
-                <button class="fa fa-search" id="search-button"><i class="search-icon"></i></button>
+                
 
                 <label for="search-bar-ingredient">Ingredient: </label>
-                <input type="text" id="search-bar-ingredient"></input>
+                <input type="text" id="search-bar-ingredient"class="search-bar-element"></input>
 
                 
 
                 <label for="search-bar-nutrient">Nutrient: </label>
-                <select id="search-bar-nutrient">
+                <select id="search-bar-nutrient"class="search-bar-element">
+                    <option value=""></option>
                     <option value="carbs">Carbohydrates</option>
                     <option value="fats">Fats</option>
                     <option value="protein">Protein</option>
                 </select>
 
                 <label for="search-bar-symbol">Symbol: </label> 
-                <select id="search-bar-symbol">
+                <select id="search-bar-symbol"class="search-bar-element">
                     <option value="<">greater than</option>
                     <option value="<=">greater than or equal to</option>
                     <option value="=">equal to</option>
@@ -56,15 +57,16 @@
                 </select>
 
                 <label for="search-bar-nutrient-amount">Amount: </label>
-                <input type="text" id="search-bar-nutrient-amount"></input>
+                <input type="text" id="search-bar-nutrient-amount"class="search-bar-element"></input>
 
                 <label for="search-bar-unit">Unit: </label>
-                <select id="search-bar-unit">
+                <select id="search-bar-unit"class="search-bar-element">
                     <option value="g">grams</option>
                     <option value="%">%</option>
                 </select>
 
-                <button id="search-reset-button">Reset Search</button>
+                <button class="fa fa-search" id="search-button"class="search-bar-element"><i class="search-icon"></i></button>
+                <button id="search-reset-button"class="search-bar-element">Reset Search</button>
 
             </div>
 

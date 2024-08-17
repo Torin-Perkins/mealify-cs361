@@ -1,4 +1,4 @@
-var allScrollers = [];
+
 
 function insertScroller(scrollerContext){
     console.log("Insert Contxt");
@@ -7,18 +7,6 @@ function insertScroller(scrollerContext){
     scrollerContainer.insertAdjacentHTML('beforeend', newScrollerHTML);
 }
 
-function parseScrollerElem(scrollerElem){
-    var newScroller = {
-        title: scrollerElem.getAttribute('data-title'),
-        description: scrollerElem.getAttribute('data-description'),
-        photoURL: scrollerElem.getAttribute('data-photoURL'),
-        carbs: scrollerElem.getAttribute('data-carbs'),
-        fat: scrollerElem.getAttribute('data-fat'),
-        protein: scrollerElem.getAttribute('data-protein')
-    };
-    console.log("==parsedScroller", newScroller);
-    return newScroller;
-}
 
 function pasreJSONScrollers(jsonResponse){
     var scrollers = document.getElementsByClassName('scroller');
@@ -33,7 +21,7 @@ function pasreJSONScrollers(jsonResponse){
             
             // Add the new data to the table
     for(var i = 0; i <= parsedData.length-1; i++){
-            insertScroller(parsedData[i]);
+        insertScroller(parsedData[i]);
     }
 }
 
@@ -171,11 +159,19 @@ function parseIngredientsList(ingredients){
 function calculateMacroPercantages(carbs, fats, proteins){
     var allMacros = [];
 
-    let sumOfAllMacros = carbs + fats + proteins;
-    let carbsPercent = (carbs/sumOfAllMacros) * 100;
-    let fatsPercent = (fats/sumOfAllMacros) * 100;
-    let proteinsPercent = (proteins/sumOfAllMacros) * 100;
-
+    var sumOfAllMacros = parseInt(carbs) + parseInt(fats) + parseInt(proteins);
+    console.log(sumOfAllMacros);
+    let carbsPercent = (carbs/sumOfAllMacros);
+    let fatsPercent = (fats/sumOfAllMacros);
+    let proteinsPercent = (proteins/sumOfAllMacros);
+    console.log(carbsPercent);
+    console.log(fatsPercent);
+    console.log(proteinsPercent);
+    
+    carbsPercent = carbsPercent * 100;
+    fatsPercent = fatsPercent * 100;
+    proteinsPercent = proteinsPercent * 100;
+    
     allMacros.push(carbsPercent);
     allMacros.push(fatsPercent);
     allMacros.push(proteinsPercent);
@@ -209,50 +205,10 @@ function closeNewScrollerModal(){
     addScrollMod.classList.add('hidden');
     modalBackDrop.classList.add('hidden');
 }
-function addScroller(){
-    var scroller_title = document.getElementById("new-scroller-title-input").value;
-    var scroller_photo = document.getElementById("new-scroller-photo-input").value;
-    var scroller_description = document.getElementById("new-scroller-description-input").value;
-    var scroller_carbs = document.getElementById("new-scroller-carbs-input").value;
-    var scroller_fat = document.getElementById("new-scroller-fat-input").value;
-    var scroller_protein = document.getElementById("new-scroller-protein-input").value;
-
-    if(!scroller_title || !scroller_photo || !scroller_description || !scroller_carbs || !scroller_fat || !scroller_protein){
-        alert("All fields must be filled");
-    }
-    {
-        var newScroller = {
-            title: scroller_title,
-            photoURL: scroller_photo,
-            description: scroller_description,
-            carbs: scroller_carbs,
-            fat: scroller_fat,
-            protein: scroller_protein
-        };
-        allScrollers.push(newScroller);
-
-        var newScrollerJString = JSON.stringify(newScroller);
-
-        fetch('/add', {
-            method: "POST",
-            body: newScrollerJString,
-            headers:{
-                "Content-Type": "application/json",
-                "Accept":"application/json",
-            }
-        })
-        .catch(function(error){
-            console.log(error)
-        });
-        insertScroller(newScroller);
-        cancelNewScrollerModal()
-    }
-}
-
 
 
 window.addEventListener('DOMContentLoaded', function(){
-    //populateLocalScrollers();
+    
      var searchBtn = document.getElementById("search-button");
     if(searchBtn){
         searchBtn.addEventListener('click', runSearchAjax);
